@@ -37,7 +37,7 @@ An OS written in Rust that only runs Pong.
    ```bash
    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
    ```
-   2. Windows: [Download this File](rustup-init.exe)
+   2. Windows: [Download this File](https://static.rust-lang.org/rustup/dist/i686-pc-windows-gnu/rustup-init.exe)
 3. Clone this GitHub repository.
 ```bash
 git clone https://github.com/Brunozhon/pongOS
