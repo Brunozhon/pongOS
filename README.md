@@ -40,7 +40,7 @@ An OS written in Rust that only runs Pong.
    2. Windows: [Download this File](https://static.rust-lang.org/rustup/dist/i686-pc-windows-gnu/rustup-init.exe)
 3. Clone this GitHub repository.
 ```bash
-git clone https://github.com/Brunozhon/pongOS
+git clone https://github.com/Brunozhon/pongOS && cd pongOS
 ```
 4. Override the Rust compiler to use Rust nightly for this directory:
 ```bash
@@ -55,7 +55,19 @@ cargo install bootimage
 cargo bootimage
 ```
 7. Run this project.
-```bash
-qemu-system-x86_64 -drive format=raw,file=target/x86_64-pongOS/debug/bootimage-pongOS.bin
-```
+   1. On QEMU:
+   ```bash
+   qemu-system-x86_64 -drive format=raw,file=target/x86_64-pongOS/debug/bootimage-pongOS.bin
+   ```
+   2. On a real machine:
+      1. Plug a USB flash drive into your computer. **It has to be at least 8GB!**
+      2. Overwrite your flash drive with the image, replacing `DRIVE` with the drive name:
+      ```bash
+      dd if=target/x86_64-blog_os/debug/bootimage-blog_os.bin of=/dev/DRIVE && sync
+      ```
+      3. Plug it in to a test computer, preferably running the x86_64 architecture and running Windows OS.
+      4. Inside "Settings," press *System > Recovery* on Windows 11 and *Settings > Update & Security > Recovery* on Windows 10.
+      5. Select the "Restart Now" button to the right of *Advanced Startup*.
+      6. In the recovery environment, navigate to "Use a Device" and choose your USB flash drive.
+      7. Your computer should reboot and boot into Pong OS!
 8. Have fun playing Pong!
